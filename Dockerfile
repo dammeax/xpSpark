@@ -7,7 +7,6 @@ RUN ln -s /opt/spark-2.3.0-bin-hadoop2.7 /opt/spark
 RUN curl -s https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz | tar xz -C /usr/src
 RUN /usr/src/Python-3.6.4/configure --enable-optimizations
 RUN make altinstall /usr/src/Python-3.6.4
-RUN rm /usr/src/Python-3.6.4.tgz
 WORKDIR /opt/spark
 RUN cp /opt/spark/conf/spark-defaults.conf.template /opt/spark/conf/spark-defaults.conf
 RUN echo 'spark.driver.extraJavaOptions=-Dhttp.proxyHost=http://proxy.lbs.alcatel-lucent.com -Dhttp.proxyPort=8000 -Dhttps.proxyHost=http://proxy.lbs.alcatel-lucent.com -Dhttps.proxyPort=8000' >> /opt/spark/conf/spark-defaults.conf
